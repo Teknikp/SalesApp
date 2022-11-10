@@ -24,13 +24,13 @@ def relret(df):
 if len(dropdown) > 0:
     df = relret(yf.download(dropdown, start, end)['Adj Close'])
     sl.line_chart(df)
-    mc = dropdown.info['marketCap']
-    fth = dropdown.info['fiftyTwoWeekHigh']
-    ftl = dropdown.info['fiftyTwoWeekLow']
-    pr = dropdown.info['payoutRatio']
-    yi = dropdown.info['yield']
-    pcl = dropdown.info['previousClose']
-    ptb =dropdown.info['priceToBook']
+    mc = yf.Ticker(dropdown).info['marketCap']
+    fth = yf.Ticker(dropdown).info['fiftyTwoWeekHigh']
+    ftl = yf.Ticker(dropdown).info['fiftyTwoWeekLow']
+    pr = yf.Ticker(dropdown).info['payoutRatio']
+    yi = yf.Ticker(dropdown).info['yield']
+    pcl = yf.Ticker(dropdown).info['previousClose']
+    ptb = yf.Ticker(dropdown).info['priceToBook']
     d = {'Market Cap': [mc], 'Fifty Two Week High': [fth], 'Fifty Two Week Low': [ftl], 'Price to Book': [ptb], 'Previous Close': [pcl], 'Payout Ratio': [pr], 'Yield': [yi]}
     df = pd.DataFrame(data=d)
 
