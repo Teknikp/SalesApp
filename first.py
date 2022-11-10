@@ -2,7 +2,7 @@ import yfinance as yf
 import streamlit as sl
 import pandas as pd
 
-sl.title('My little Finance App')
+sl.title('My Finance App')
 df = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')[0]
 tickers = df.Symbol.to_list()
 dropdown = sl.multiselect('Choose your  ticker', tickers)
