@@ -24,7 +24,6 @@ def relret(df):
 if len(dropdown) > 0:
     df = relret(yf.download(dropdown, start, end)['Adj Close'])
     sl.line_chart(df)
-    y = dropdown.info
     mc = dropdown.info['marketCap']
     fth = dropdown.info['fiftyTwoWeekHigh']
     ftl = dropdown.info['fiftyTwoWeekLow']
