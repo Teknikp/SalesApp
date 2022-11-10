@@ -7,7 +7,6 @@ df = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')[0
 tickers = df.Symbol.to_list()
 comps = ['Price Comparison', 'Performance Comparison']
 dropdown = sl.multiselect('Choose your  ticker', tickers)
-dropdown2 = sl.multiselect()
 start = sl.date_input('Start date', pd.to_datetime('2019-01-01'))
 end = sl.date_input('End date', pd.to_datetime('today'))
 
