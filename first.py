@@ -25,14 +25,15 @@ if len(dropdown) > 0:
     df = relret(yf.download(dropdown, start, end)['Adj Close'])
     sl.title(dropdown)
     sl.line_chart(df)
-    mc = yf.Ticker(dropdown).info['marketCap']
-    fth = yf.Ticker(dropdown).info['fiftyTwoWeekHigh']
-    ftl = yf.Ticker(dropdown).info['fiftyTwoWeekLow']
-    pr = yf.Ticker(dropdown).info['payoutRatio']
-    yi = yf.Ticker(dropdown).info['yield']
-    pcl = yf.Ticker(dropdown).info['previousClose']
-    ptb = yf.Ticker(dropdown).info['priceToBook']
+    ts = yf.Ticker(dropdown)
+    mc = ts.info['marketCap']
+    fth = ts.info['fiftyTwoWeekHigh']
+    ftl = ts.info['fiftyTwoWeekLow']
+    pr = ts.info['payoutRatio']
+    yi = ts.info['yield']
+    pcl = ts.info['previousClose']
+    ptb = ts.info['priceToBook']
     d = {'Market Cap': [mc], 'Fifty Two Week High': [fth], 'Fifty Two Week Low': [ftl], 'Price to Book': [ptb], 'Previous Close': [pcl], 'Payout Ratio': [pr], 'Yield': [yi]}
-    df = pd.DataFrame(data=d)
+    dff = pd.DataFrame(data=d)
 
-    sl.table(df)
+    sl.table(dff)
