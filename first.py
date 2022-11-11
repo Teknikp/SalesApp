@@ -25,7 +25,7 @@ if len(dropdown) > 0:
     df = relret(yf.download(dropdown, start, end)['Adj Close'])
     sl.title(dropdown)
     sl.line_chart(df)
-    ts = yf.Ticker(dropdown[len(dropdown)])
+    ts = yf.Ticker(dropdown[0])
     mc = ts.info['marketCap']
     fth = ts.info['fiftyTwoWeekHigh']
     ftl = ts.info['fiftyTwoWeekLow']
