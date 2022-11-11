@@ -23,8 +23,11 @@ def relret(df):
 
 if len(dropdown) > 0:
     df = relret(yf.download(dropdown, start, end)['Adj Close'])
-    sl.title(dropdown)
+    sl.title('Performance of', dropdown)
     sl.line_chart(df)
+    fd = yf.download(dropdown, start, end)['Adj Close']
+    sl.title('Price of', dropdown)
+    sl.line_chart(fd)
     ts = yf.Ticker(dropdown[0])
     mc = ts.info['marketCap']
     fth = ts.info['fiftyTwoWeekHigh']
